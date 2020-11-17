@@ -10,6 +10,7 @@ for i in start_array:
 for j in interim_array:
     if j not in final_array:
         final_array.append(j)
+result_for_quick_sort = final_array
 
 #  b = list(set(b)), append?
 
@@ -69,11 +70,15 @@ def binarySearch(nums, item):
     else:
         return m
 
-print(final_array)
+
+print('For bubble sort: ', final_array)
+print('For quick sort: ', result_for_quick_sort)
 bubble_sort(final_array)
 print(final_array)
-quick_sort(final_array)
-print(final_array)
+
+quick_sort(result_for_quick_sort)
+print(result_for_quick_sort)
+
 
 print(binarySearch(final_array, 33))
 
