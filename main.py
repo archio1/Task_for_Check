@@ -14,6 +14,7 @@ result_for_quick_sort = final_array
 
 #  b = list(set(b)), append?
 
+
 def bubble_sort(nums):
     swapped = True
     while swapped:
@@ -22,6 +23,7 @@ def bubble_sort(nums):
             if nums[i] > nums[i + 1]:
                 nums[i], nums[i + 1] = nums[i + 1], nums[i]
                 swapped = True
+
 
 def selection_sort(nums):
     for i in range(len(nums)):
@@ -45,6 +47,7 @@ def partition(nums, low, high):
         if i >= j:
             return j
         nums[i], nums[j] = nums[j], nums[i]
+
 
 def quick_sort(nums):
     def _quick_sort(items, low, high):
@@ -75,6 +78,7 @@ print('For bubble sort: ', final_array)
 print('For quick sort: ', result_for_quick_sort)
 bubble_sort(final_array)
 print(final_array)
+
 
 quick_sort(result_for_quick_sort)
 print(result_for_quick_sort)

@@ -1,5 +1,5 @@
 
-
+#за тегом
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 browser = webdriver.Chrome("C:/Users/Пользователь/Downloads/chromedriver_win32/chromedriver.exe")
