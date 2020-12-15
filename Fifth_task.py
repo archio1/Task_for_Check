@@ -1,41 +1,51 @@
 #3)	Реалізувати декоратор. Виміряти час роботи функцій з першого завдання. Спрбувати реалізувати анонімну функцію.
 #Стоверення бібіліотек if _main_
 #Нагерувати масив набагато більше. Відображення до тисячної.
-
-
 import time
-from main import bubble_sort
-from main import quick_sort
+import random
+from Functions_for_fifth_task import bubble_sort
+from Functions_for_fifth_task import partition
+from Functions_for_fifth_task import quick_sort
 
 
 def benchmark(func):
 
     def wrapper(*args, **kwargs):
-        start = time.time()
+        start = time.time_ns()
         return_value = func(*args, **kwargs)
-        end = time.time()
-        moretime = time.time_ns()
-        print('Time of work: {} seconds.', moretime)
+        end = time.time_ns()
+        #moretime = time.time_ns()
+        print('Time of work: {} seconds.', format(end-start))
         return return_value
     return wrapper
 
-start_array = [[12, 45, 1, 0, 66], [47, 32, 11, 7, 17], [65, 90, 21, 3, 16], [2, -16, 22, 12, 33]]
+def random_array(number, first_value = 0, last_value = 100):
+    temp_array = []
+    for i in range(number):
+        temp_array.append(random.randint(first_value, last_value))
+    return temp_array
+
+another_array = random_array(100)
+
+#start_array = random.randint()
 #print(start_array)
 #@benchmark
 #def checking_all():
 #    lambda bubble_sort, quick_sort: bubble_sort(start_array), quick_sort(start_array)
 #checking_all = lambda bubble_sort, quick_sort: bubble_sort(start_array), quick_sort(start_array)
 #@checking_all(lambda bubble_sort, quick_sort: bubble_sort(start_array), quick_sort(start_array))
-
+print(another_array)
 @benchmark
 def checking_bubble_sort():
-    bubble_sort(start_array)
+    bubble_sort(another_array)
 @benchmark
-def checking_quick_sort(): # можно ли одной функцией? start array is must be global??
-    quick_sort(start_array)
+def checking_quick_sort():
+    partition(another_array, 20, 80)
+    quick_sort(another_array)
 
 checking_bubble_sort()
 checking_quick_sort()
+
 
 #checking_all()
 
